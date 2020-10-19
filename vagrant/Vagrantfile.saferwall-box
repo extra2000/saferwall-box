@@ -30,7 +30,7 @@ Vagrant.configure("2") do |config|
       override.vm.box_download_checksum_type = "sha256"
       override.vm.box_download_checksum = "48e14597e88a0663b1748ac2239de6fea5e9976687f5c57b1ba2480612a0b154"
       v.cpus = "4"
-      v.cputopology sockets: "1", cores: "8", threads: "1"
+      v.cputopology sockets: "1", cores: "4", threads: "1"
       v.memory = "8192"
       v.disk_bus = "virtio"
       v.nic_model_type = "virtio-net-pci"
