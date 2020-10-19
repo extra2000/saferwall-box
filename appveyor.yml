@@ -1,0 +1,15 @@
+os: Ubuntu
+platform:
+  - x64
+install:
+  - sudo apt-get update && sudo apt-get install -y bridge-utils dnsmasq-base ebtables libvirt-bin libvirt-dev qemu-kvm qemu-utils ruby-dev
+  - sudo wget -nv https://releases.hashicorp.com/vagrant/2.2.9/vagrant_2.2.9_x86_64.deb
+  - sudo dpkg -i vagrant_2.2.9_x86_64.deb
+  - sudo vagrant plugin install vagrant-libvirt vagrant-scp vagrant-reload vagrant-vbguest
+  - git submodule init
+  - git submodule update
+build_script:
+  - sudo vagrant up --provider=libvirt saferwall-box
+  - sudo vagrant ssh saferwall-box -- sudo salt-call state.highstate
+  - sudo vagrant destroy --force saferwall-box
+test: off
