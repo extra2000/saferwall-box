@@ -21,14 +21,12 @@ Vagrant.configure("2") do |config|
   config.vagrant.plugins = ["vagrant-reload", "vagrant-scp"]
 
   config.vm.define "saferwall-box" do |saferwall_box|
-    saferwall_box.vm.box = "centos/7"
-    saferwall_box.vm.box_version = "2004.01"
+    saferwall_box.vm.box = "fedora/32-cloud-base"
+    saferwall_box.vm.box_version = "32.20200422.0"
     saferwall_box.vm.hostname = "saferwall-box"
 
     saferwall_box.vm.provider "libvirt" do |v, override|
       override.vagrant.plugins = config.vagrant.plugins + ["vagrant-libvirt"]
-      override.vm.box_download_checksum_type = "sha256"
-      override.vm.box_download_checksum = "48e14597e88a0663b1748ac2239de6fea5e9976687f5c57b1ba2480612a0b154"
       v.cpus = "4"
       v.cputopology sockets: "1", cores: "4", threads: "1"
       v.memory = "8192"
@@ -49,8 +47,6 @@ Vagrant.configure("2") do |config|
     saferwall_box.vm.provider "virtualbox" do |v, override|
       override.vagrant.plugins = config.vagrant.plugins + ["vagrant-vbguest"]
       override.vbguest.auto_update = true
-      override.vm.box_download_checksum_type = "sha256"
-      override.vm.box_download_checksum = "7e83943defcb5c4e9bebbe4184cce4585c82805a15e936b01b1e893b63dee2c5"
       override.vm.network "private_network", type: "dhcp"
       v.name = "saferwall-box"
       v.gui = false
@@ -62,22 +58,9 @@ Vagrant.configure("2") do |config|
       v.customize ['modifyvm', :id, '--audio', 'none']
 
       override.vm.provision 'shell', run: 'once', inline: 'echo nameserver 8.8.8.8 | tee /etc/resolv.conf', privileged: true
-      override.vm.provision 'shell', run: 'once', inline: 'sudo yum install -y avahi-tools nss-mdns && sudo systemctl start avahi-daemon && sudo systemctl enable avahi-daemon'
+      override.vm.provision 'shell', run: 'once', inline: 'sudo dnf install -y avahi-tools nss-mdns && sudo systemctl start avahi-daemon && sudo systemctl enable avahi-daemon'
       salt_provision_saferwall_box override
       override.vm.provision 'reload'
-    end
-
-    saferwall_box.vm.provider "hyperv" do |v, override|
-      override.vagrant.plugins = config.vagrant.plugins + ["vagrant-vbguest"]
-      override.vbguest.auto_update = false
-      override.vm.box_download_checksum_type = "sha256"
-      override.vm.box_download_checksum = "51bb0495a2c01f25ed511ab02608d05c868285d17372be4efedd798f9ac1c81f"
-      override.vm.network "private_network", type: "dhcp"
-      v.maxmemory = "8192"
-      v.cpus = "4"
-      v.memory = "8192"
-
-      salt_provision_saferwall_box override
     end
 
     saferwall_box.vm.synced_folder "salt/roots/", "/srv/", type: "rsync"
