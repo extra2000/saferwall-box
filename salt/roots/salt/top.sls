@@ -2,3 +2,4 @@ base:
   '*':
     - podman
     - bridgenet
+    - nginx
