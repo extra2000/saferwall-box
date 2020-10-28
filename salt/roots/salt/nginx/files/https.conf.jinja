@@ -8,18 +8,9 @@ server {
     access_log /var/log/nginx/ssl-access.log;
     error_log  /var/log/nginx/ssl-error.log;
 
+    client_max_body_size {{ pillar['nginx']['client_max_body_size'] }};
+
     location / {
-        proxy_set_header        Host $host;
-        proxy_set_header        X-Real-IP $remote_addr;
-        proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header        X-Forwarded-Proto $scheme;
-        proxy_pass              http://{{ pillar['nginx']['frontend-pod']['host'] }}:{{ pillar['nginx']['frontend-pod']['port'] }};
-        proxy_read_timeout      90;
-    }
-
-    location /upload {
-        client_max_body_size 100M;
-
         proxy_set_header        Host $host;
         proxy_set_header        X-Real-IP $remote_addr;
         proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;

@@ -18,3 +18,4 @@ nginx:
     common-name: localhost
     email: ventilator@radiator.abc
     days-valid: 365
+  client_max_body_size: 100M
