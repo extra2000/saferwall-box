@@ -25,9 +25,9 @@ $ cp -v salt/roots/pillar/saferwall.sls.example salt/roots/pillar/saferwall.sls
 
 ## Preparing environment
 
-Create box and apply required states:
+Create box and apply required states. You can change to `--provider=libvirt` if you want to use Libvirt as the provider:
 ```
-$ vagrant up --provider=libvirt
+$ vagrant up --provider=virtualbox
 $ vagrant ssh saferwall-box -- sudo salt-call state.highstate
 ```
 
