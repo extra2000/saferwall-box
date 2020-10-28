@@ -9,6 +9,7 @@ install:
   - git submodule init
   - git submodule update
 build_script:
+  - cp -v vagrant/Vagrantfile.saferwall-box{.fedora-32.amd64.example,}
   - sudo vagrant up --provider=libvirt saferwall-box
   - sudo vagrant ssh saferwall-box -- sudo salt-call state.highstate
   - sudo vagrant destroy --force saferwall-box

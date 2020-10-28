@@ -17,6 +17,7 @@ jobs:
         - sudo dpkg -i vagrant_2.2.9_x86_64.deb
         - sudo vagrant plugin install vagrant-libvirt vagrant-scp vagrant-reload
       script:
+        - cp -v vagrant/Vagrantfile.saferwall-box{.fedora-32.amd64.example,}
         - travis_wait sudo vagrant up --provider=libvirt saferwall-box
         - travis_wait sudo vagrant ssh saferwall-box -- sudo salt-call state.highstate
         - sudo vagrant destroy --force saferwall-box
