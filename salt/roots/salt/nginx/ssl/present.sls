@@ -28,13 +28,16 @@ nginx-ssl-generate:
     - require:
       - file: /opt/nginx/ssl/ssl.conf
 
+{% if salt['pillar.get']('nginx:dhparam:enabled') %}
 nginx-dhparm-present:
   cmd.run:
-    - name: openssl dhparam -out /etc/pki/nginx/private/dhparam.pem 4096
+    - name: openssl dhparam -out /etc/pki/nginx/private/dhparam.pem {{ pillar['nginx']['dhparam']['bits'] }}
     - require:
       - file: /etc/pki/nginx/private
+{% endif %}
 
 /etc/nginx/ssl-params.conf:
   file.managed:
     - name: /etc/nginx/ssl-params.conf
     - source: salt://nginx/files/ssl-params.conf.jinja
+    - template: jinja
