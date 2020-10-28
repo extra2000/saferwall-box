@@ -18,6 +18,8 @@ jobs:
         - sudo vagrant plugin install vagrant-libvirt vagrant-scp vagrant-reload
       script:
         - cp -v vagrant/Vagrantfile.saferwall-box{.fedora-32.amd64.example,}
+        - cp -v salt/roots/pillar/nginx.sls{.example,}
+        - cp -v salt/roots/pillar/saferwall.sls{.example,}
         - travis_wait sudo vagrant up --provider=libvirt saferwall-box
         - travis_wait sudo vagrant ssh saferwall-box -- sudo salt-call state.highstate
         - sudo vagrant destroy --force saferwall-box
