@@ -27,8 +27,8 @@ Vagrant.configure("2") do |config|
 
     saferwall_box.vm.provider "libvirt" do |v, override|
       override.vagrant.plugins = config.vagrant.plugins + ["vagrant-libvirt"]
-      v.cpus = "4"
-      v.cputopology sockets: "1", cores: "4", threads: "1"
+      v.cpus = "2"
+      v.cputopology sockets: "1", cores: "2", threads: "1"
       v.memory = "4096"
       v.disk_bus = "virtio"
       v.nic_model_type = "virtio-net-pci"
@@ -50,7 +50,7 @@ Vagrant.configure("2") do |config|
       override.vm.network "private_network", type: "dhcp"
       v.name = "saferwall-box"
       v.gui = false
-      v.cpus = "4"
+      v.cpus = "2"
       v.memory = "4096"
       v.linked_clone = true
       v.customize ["modifyvm", :id, '--natdnshostresolver1', 'on']
