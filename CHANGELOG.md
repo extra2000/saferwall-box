@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.0-alpha.2](https://github.com/extra2000/saferwall-box/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2020-10-29)
+
+
+### Fixes
+
+* **saferwall-formula:** Fix BASH scripts CRLF issues on Windows ([095adc7](https://github.com/extra2000/saferwall-box/commit/095adc7f17ee9a7a88ca878d4898473963ddc56d))
+
+
+### Documentations
+
+* **README:** Change `vagrant up` default to virtualbox provider ([991c754](https://github.com/extra2000/saferwall-box/commit/991c7543fea9ecb5ce37e4c526aaeda8def8fe8c))
+
 ## 1.0.0-alpha.1 (2020-10-28)
 
 
