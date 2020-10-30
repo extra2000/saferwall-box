@@ -9,7 +9,7 @@ Developer box for Saferwall
 
 ## Getting started
 
-Clone this repository and `cd`:
+Read [Known Issues](docs/known-issues.md). Clone this repository and `cd`:
 ```
 $ git clone --recursive https://github.com/extra2000/saferwall-box.git
 $ cd saferwall-box
