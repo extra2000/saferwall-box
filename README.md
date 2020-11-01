@@ -39,7 +39,7 @@ Apply `saferwall` state to copy files and configurations. If you made any change
 $ vagrant ssh saferwall-box -- sudo salt-call state.sls saferwall
 ```
 
-`SSH` into the `saferwall-box`:
+`SSH` into the `saferwall-box` either via `vagrant ssh` or Cockpit terminal https://saferwall-box:9090/system/terminal:
 ```
 $ vagrant ssh saferwall-box
 $ cd /opt/saferwall
