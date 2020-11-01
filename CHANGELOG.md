@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.0.0-alpha.3](https://github.com/extra2000/saferwall-box/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2020-11-01)
+
+
+### Features
+
+* **saferwall-formula:** Update to [v1.0.0-alpha.1](https://github.com/extra2000/saferwall-formula/releases/tag/v1.0.0-alpha.1) ([7b28eef](https://github.com/extra2000/saferwall-box/commit/7b28eef0f98bc757bbab24ab6cc65a169b5c3415))
+* **salt:** Add Cockpit with addons ([cd25fde](https://github.com/extra2000/saferwall-box/commit/cd25fde44b87a1de87b290a808765cf383c3bcd2))
+
+
+### Documentations
+
+* **README:** Add Cockpit known issues when login after `vagrant destroy` ([2224b4d](https://github.com/extra2000/saferwall-box/commit/2224b4df5a49a0b10a75247b69c8a7f0aa20a51b))
+* **README:** Add example login credentials ([5c16bc6](https://github.com/extra2000/saferwall-box/commit/5c16bc6d2fab7df1a26736449b93919d872b9167))
+* **README:** Add instruction to use Cockpit terminal instead of `vagrant ssh` ([4451ee7](https://github.com/extra2000/saferwall-box/commit/4451ee7a6d012020a77335e9721027036264d11e))
+* **README:** Change multiav deployment to Podman Pod YAML file ([41fc97a](https://github.com/extra2000/saferwall-box/commit/41fc97a96a30d7f743b7038c4014cde253f023e5))
+
 ## [1.0.0-alpha.2](https://github.com/extra2000/saferwall-box/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2020-10-29)
 
 
