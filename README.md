@@ -75,7 +75,11 @@ To access and playaround with MinIO, go to http://saferwall-box:9000. Use Access
 $ podman play kube couchbase-pod.yaml
 ```
 
-Create a Couchbase cluster named `saferwall-cluster` by navigating to http://saferwall-box:8091 using web browser. Set the following quota:
+Create a Couchbase cluster named `saferwall-cluster` by navigating to http://saferwall-box:8091 using web browser. Use the following `username` and `password`:
+* Username: `Administrator`
+* Password: `abcde12345`
+
+Set the following quota:
 * Data: 256MB
 * Index: 256MB
 * Search: 256MB
@@ -104,7 +108,9 @@ Fix `/samples` permission:
 $ podman exec -it --user=root saferwall-pod-consumer chown saferwall:saferwall /samples
 ```
 
-Access saferwall at https://saferwall-box
+Access saferwall at https://saferwall-box with the following login:
+* Username: `admin`
+* Password: `abcde12345`
 
 
 ## API example usage with Curl
