@@ -93,7 +93,7 @@ Then, create 2 buckets with memory size 128MB each:
 
 ```
 $ mkdir -pv samples
-$ sudo salt-call state.sls saferwall.multiav
+$ podman play kube --seccomp-profile-root /opt/saferwall/src/build/data multiav-pod.yaml
 ```
 
 
