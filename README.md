@@ -46,6 +46,13 @@ $ cd /opt/saferwall
 ```
 
 
+### Create persistent volumes for containers
+
+```
+$ mkdir --mode=777 -pv /opt/saferwall/{nsq,minio,couchbase,samples}
+```
+
+
 ### Deploy NSQ pod
 
 ```
@@ -92,7 +99,6 @@ Then, create 2 buckets with memory size 128MB each:
 ### Deploy MultiAV pod
 
 ```
-$ mkdir -pv samples
 $ podman play kube --seccomp-profile-root /opt/saferwall/src/build/data multiav-pod.yaml
 ```
 
@@ -101,11 +107,6 @@ $ podman play kube --seccomp-profile-root /opt/saferwall/src/build/data multiav-
 
 ```
 $ podman play kube saferwall-pod.yaml
-```
-
-Fix `/samples` permission:
-```
-$ podman exec -it --user=root saferwall-pod-consumer chown saferwall:saferwall /samples
 ```
 
 Access saferwall at https://saferwall-box with the following login:
