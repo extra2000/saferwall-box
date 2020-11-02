@@ -9,7 +9,7 @@ install:
   - git submodule init
   - git submodule update
 build_script:
-  - cp -v vagrant/Vagrantfile.saferwall-box{.fedora-32.amd64.example,}
+  - cp -v vagrant/Vagrantfile.saferwall-box{.fedora-32.x86_64.example,}
   - cp -v salt/roots/pillar/nginx.sls{.example,}
   - cp -v salt/roots/pillar/saferwall.sls{.example,}
   - sudo vagrant up --provider=libvirt saferwall-box

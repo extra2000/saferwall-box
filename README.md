@@ -17,7 +17,7 @@ $ cd saferwall-box
 
 Copy example pillars and Vagrant scripts:
 ```
-$ cp -v vagrant/Vagrantfile.saferwall-box.fedora-32.amd64.example vagrant/Vagrantfile.saferwall-box
+$ cp -v vagrant/Vagrantfile.saferwall-box.fedora-32.x86_64.example vagrant/Vagrantfile.saferwall-box
 $ cp -v salt/roots/pillar/nginx.sls.example salt/roots/pillar/nginx.sls
 $ cp -v salt/roots/pillar/saferwall.sls.example salt/roots/pillar/saferwall.sls
 ```
