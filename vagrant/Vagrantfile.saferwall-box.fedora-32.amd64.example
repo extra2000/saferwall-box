@@ -22,7 +22,6 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "saferwall-box" do |saferwall_box|
     saferwall_box.vm.box = "fedora/32-cloud-base"
-    saferwall_box.vm.box_version = "32.20200422.0"
     saferwall_box.vm.hostname = "saferwall-box"
 
     saferwall_box.vm.provider "libvirt" do |v, override|
