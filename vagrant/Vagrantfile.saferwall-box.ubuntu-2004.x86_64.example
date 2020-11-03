@@ -1,0 +1,68 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+def salt_provision_saferwall_box(context)
+  context.vm.provision "salt", run: 'once' do |salt|
+    salt.minion_config = "salt/etc/minion"
+    salt.masterless = true
+    salt.run_highstate = false
+    salt.verbose = true
+    salt.log_level = "info"
+    salt.colorize = true
+    salt.install_type = "stable"
+    salt.python_version = "3"
+    salt.bootstrap_options = "-P -c /tmp"
+  end
+end
+
+
+Vagrant.configure("2") do |config|
+
+  config.vagrant.plugins = ["vagrant-reload", "vagrant-scp"]
+
+  config.vm.define "saferwall-box" do |saferwall_box|
+    saferwall_box.vm.box = "generic/ubuntu2004"
+    saferwall_box.vm.hostname = "saferwall-box"
+
+    saferwall_box.vm.provider "libvirt" do |v, override|
+      override.vagrant.plugins = config.vagrant.plugins + ["vagrant-libvirt"]
+      v.cpus = "2"
+      v.cputopology sockets: "1", cores: "2", threads: "1"
+      v.memory = "4096"
+      v.disk_bus = "virtio"
+      v.nic_model_type = "virtio-net-pci"
+      v.nested = false
+      v.cpu_mode = "host-model"
+      v.cpu_fallback = "allow"
+      v.graphics_type = "vnc"
+      v.kvm_hidden = "false"
+      v.machine_type = "pc-i440fx-2.11"
+      v.machine_arch = "x86_64"
+      v.autostart = false
+
+      salt_provision_saferwall_box override
+    end
+
+    saferwall_box.vm.provider "virtualbox" do |v, override|
+      override.vagrant.plugins = config.vagrant.plugins + ["vagrant-vbguest"]
+      override.vbguest.auto_update = false
+      override.vm.network "private_network", type: "dhcp"
+      v.name = "saferwall-box"
+      v.gui = false
+      v.cpus = "2"
+      v.memory = "4096"
+      v.linked_clone = true
+      v.customize ["modifyvm", :id, '--natdnshostresolver1', 'on']
+      v.customize ['modifyvm', :id, '--graphicscontroller', 'vmsvga']
+      v.customize ['modifyvm', :id, '--audio', 'none']
+
+      override.vm.provision 'shell', run: 'once', inline: 'echo nameserver 8.8.8.8 | tee /etc/resolv.conf', privileged: true
+      override.vm.provision 'shell', run: 'once', inline: 'sudo apt install -y avahi-tools nss-mdns && sudo systemctl start avahi-daemon && sudo systemctl enable avahi-daemon'
+      salt_provision_saferwall_box override
+      override.vm.provision 'reload'
+    end
+
+    saferwall_box.vm.synced_folder "salt/roots/", "/srv/", type: "rsync"
+    saferwall_box.vm.synced_folder '.', '/vagrant', disabled: true
+  end
+end
