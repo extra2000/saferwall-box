@@ -15,7 +15,8 @@
     - template: jinja
 
 /etc/pki/nginx:
-  file.directory
+  file.directory:
+    - makedirs: true
 
 /etc/pki/nginx/private:
   file.directory:
