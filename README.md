@@ -19,3 +19,8 @@ Then, follow these instructions:
 1. [Creating Saferwall Box](creating-saferwall-box.md)
 1. [Regular Usage](regular-usage.md)
 1. [Saferwall API with cURL](saferwall-api-with-curl.md)
+
+
+## Resources
+
+1. [MalwareBazaar](https://bazaar.abuse.ch/). You can test Saferwall using malware files from here.
