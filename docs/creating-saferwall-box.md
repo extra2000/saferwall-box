@@ -32,14 +32,6 @@ $ cd /opt/saferwall
 Remember for the following Sections, it is assumed that your current working directory is at `/opt/saferwall`.
 
 
-## Create persistent volumes for containers
-
-These directories will store container data:
-```
-$ mkdir --mode=777 -pv /opt/saferwall/{nsq,minio,couchbase,samples}
-```
-
-
 ## Deploy NSQ pod
 
 ```
