@@ -1,6 +1,37 @@
 # -*- coding: utf-8 -*-
 # vim: ft=sls
 
+{% if grains['os_family'] == 'Debian' %}
+network-manager:
+  pkg.installed
+{% endif %}
+
+{% if grains['os'] == 'Ubuntu' %}
+# Fix "device strictly unmanaged" issue
+/etc/NetworkManager/conf.d/10-globally-managed-devices.conf:
+  file.touch
+
+reload-network-manager:
+  service.running:
+    - name: NetworkManager.service
+    - reload: True
+{% endif %}
+
+{% if grains['os_family'] == 'Suse' %}
+NetworkManager:
+  pkg.installed
+
+service-wicked-disable:
+  service.running:
+    - name: wicked
+    - enable: false
+
+service-NetworkManager-running:
+  service.running:
+    - name: NetworkManager
+    - enable: true
+{% endif %}
+
 bridgenet-present:
   cmd.run:
     - name: |
