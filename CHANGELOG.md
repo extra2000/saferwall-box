@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.0-alpha.5](https://github.com/extra2000/saferwall-box/compare/v1.0.0-alpha.4...v1.0.0-alpha.5) (2020-11-04)
+
+
+### Documentations
+
+* **README:** Add a list of supported CPU architectures ([65d186a](https://github.com/extra2000/saferwall-box/commit/65d186ad15bf1d00d66282fb3c723953ba000c3a))
+* **README:** Add deployment diagram ([a723f2d](https://github.com/extra2000/saferwall-box/commit/a723f2db29ed8e1ea8935a6db31b6ab7039334ca))
+* **README:** Fix Section URLs ([08faea3](https://github.com/extra2000/saferwall-box/commit/08faea3bf1cc4947a19e8ca2675ad6c7f528906b))
+
 ## [1.0.0-alpha.4](https://github.com/extra2000/saferwall-box/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2020-11-04)
 
 
