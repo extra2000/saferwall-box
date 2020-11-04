@@ -6,6 +6,8 @@
 
 Developer box for Saferwall
 
+![deployment-diagram](docs/resources/deployments.svg)
+
 
 ## Getting started
 
