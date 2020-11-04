@@ -23,6 +23,13 @@ Then, follow these instructions:
 1. [Saferwall API with cURL](saferwall-api-with-curl.md)
 
 
+## Supported CPU architectures
+
+1. `x86_64`
+
+Note that `aarch64` Vagrant files in `vagrant/` are not yet supported.
+
+
 ## Resources
 
 1. [MalwareBazaar](https://bazaar.abuse.ch/). You can test Saferwall using malware files from here.
