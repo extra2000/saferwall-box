@@ -1,5 +1,41 @@
 # Changelog
 
+## [1.0.0-alpha.4](https://github.com/extra2000/saferwall-box/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2020-11-04)
+
+
+### Features
+
+* **podman-formula:** Update to [v2.1.0-alpha.1](https://github.com/extra2000/podman-formula/releases/tag/v2.1.0-alpha.1) ([2513fcb](https://github.com/extra2000/saferwall-box/commit/2513fcbe10e8afc5030be87e1c432ecbbaea4eda))
+* **saferwall-formula:** Update to [v1.0.0-alpha.2](https://github.com/extra2000/saferwall-formula/releases/tag/v1.0.0-alpha.2) ([a236ebc](https://github.com/extra2000/saferwall-box/commit/a236ebc475b76814ea1bcfecbe84ea303f3e4954))
+* **saferwall-formula:** Update to [v1.0.0-alpha.3](https://github.com/extra2000/saferwall-formula/releases/tag/v1.0.0-alpha.3) ([997d475](https://github.com/extra2000/saferwall-box/commit/997d475baaac71999d9aa45c93736180bb3b442c))
+* **salt:** Add `swapoff` to disable swap ([2f3aca5](https://github.com/extra2000/saferwall-box/commit/2f3aca54fb277cd0ba2758ae3ae4f1853a5c0a4c))
+* **salt.bridgenet:** Add support for Debian, Ubuntu, and SUSE families ([132ce84](https://github.com/extra2000/saferwall-box/commit/132ce84cc1ea8212b7ff8c81a4f1c8a7e347210f))
+* **vagrant:** Add Debian 10 x86_64 box ([1505895](https://github.com/extra2000/saferwall-box/commit/1505895ebbc526a8954ad45d6cb7ec4c766e6508))
+* **vagrant:** Add openSUSE Leap 15.2 x86_64 box ([968a0cc](https://github.com/extra2000/saferwall-box/commit/968a0ccc87dea7ba74ce14c27ccc63efe2370451))
+* **vagrant:** Add openSUSE Tumbleweed aarch64 box ([299853c](https://github.com/extra2000/saferwall-box/commit/299853cde207ecba135447cc485c9a39ad50fb18))
+* **vagrant:** Add openSUSE Tumbleweed x86_64 box ([90c74e9](https://github.com/extra2000/saferwall-box/commit/90c74e9994456cdb26cfa4004001a9d05006c62e))
+* **vagrant:** Add Ubuntu 20.04 x86_64 box ([f8a993b](https://github.com/extra2000/saferwall-box/commit/f8a993b2525ee95954b1c573beeec5f8a39ec642))
+
+
+### Code Refactoring
+
+* **vagrant:** Rename `amd64` to `x86_64` ([0797eac](https://github.com/extra2000/saferwall-box/commit/0797eac34e3807d5b9e4f30c57de411db2d6b661))
+* **vagrant.fedora-32.amd64:** Remove `box_version` ([9c521e8](https://github.com/extra2000/saferwall-box/commit/9c521e8f2e1e7afd9478b8c9f3e517c1a1198e20))
+
+
+### Fixes
+
+* **cockpit:** Restrict Cockpit to RedHat families only, due to bad support on other distros ([c91484b](https://github.com/extra2000/saferwall-box/commit/c91484b51af227fc9cbab10903c02b9ae4f35bcf))
+* **salt.nginx:** Fix NGINX failed on distro other than Fedora 32 ([aa271c4](https://github.com/extra2000/saferwall-box/commit/aa271c42a36cfa417857a5aab79daabaa7fd1b6d))
+
+
+### Documentations
+
+* **README:** Add instructions to create persistent volumes for containers ([bd7f5e1](https://github.com/extra2000/saferwall-box/commit/bd7f5e19bd18c4f6a0f371f58bb61de7fade6f8e))
+* **README:** Add link to MalwareBazaar for resources on testing Saferwall ([647b060](https://github.com/extra2000/saferwall-box/commit/647b0602efe8406ef57818f411cb3df1e67fb89a))
+* **README:** Re-organize into Chapters and add more explanation ([101c9f5](https://github.com/extra2000/saferwall-box/commit/101c9f5f01853de60cf5ba8aad2c396cdb398d99))
+* **README:** Remove instruction to create persistent volume ([145df51](https://github.com/extra2000/saferwall-box/commit/145df51f67594d7cab701b7604bed277970c3a11))
+
 ## [1.0.0-alpha.3](https://github.com/extra2000/saferwall-box/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2020-11-01)
 
 
