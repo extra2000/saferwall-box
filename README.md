@@ -18,9 +18,9 @@ $ cd saferwall-box
 ```
 
 Then, follow these instructions:
-1. [Creating Saferwall Box](creating-saferwall-box.md)
-1. [Regular Usage](regular-usage.md)
-1. [Saferwall API with cURL](saferwall-api-with-curl.md)
+1. [Creating Saferwall Box](docs/creating-saferwall-box.md)
+1. [Regular Usage](docs/regular-usage.md)
+1. [Saferwall API with cURL](docs/saferwall-api-with-curl.md)
 
 
 ## Supported CPU architectures
