@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.0-alpha.6](https://github.com/extra2000/saferwall-box/compare/v1.0.0-alpha.5...v1.0.0-alpha.6) (2020-11-05)
+
+
+### Features
+
+* **vagrant:** Add openSUSE Leap 15.2 aarch64 box ([cbc78e2](https://github.com/extra2000/saferwall-box/commit/cbc78e2524cd383ab8d7a695e5c6a54cfbbbc204))
+
 ## [1.0.0-alpha.5](https://github.com/extra2000/saferwall-box/compare/v1.0.0-alpha.4...v1.0.0-alpha.5) (2020-11-04)
 
 
