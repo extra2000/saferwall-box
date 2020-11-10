@@ -20,15 +20,10 @@ NetworkManager-restart:
 NetworkManager:
   pkg.installed
 
-service-wicked-disable:
-  service.running:
-    - name: wicked
-    - enable: false
-
 service-NetworkManager-running:
   service.running:
     - name: NetworkManager
-    - enable: true
+    - enable: false
 {% endif %}
 
 bridgenet-present:
