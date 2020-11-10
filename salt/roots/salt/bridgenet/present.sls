@@ -11,10 +11,9 @@ network-manager:
 /etc/NetworkManager/conf.d/10-globally-managed-devices.conf:
   file.touch
 
-reload-network-manager:
-  service.running:
-    - name: NetworkManager.service
-    - reload: True
+NetworkManager-restart:
+  cmd.run:
+    - name: systemctl restart NetworkManager.service
 {% endif %}
 
 {% if grains['os_family'] == 'Suse' %}
