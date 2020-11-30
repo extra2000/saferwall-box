@@ -91,3 +91,12 @@ $ podman play kube saferwall-pod.yaml
 Access saferwall at https://saferwall-box with the following login:
 * Username: `admin`
 * Password: `abcde12345`
+
+
+## Forwarding guest port 8443 to host port 443
+
+Unfortunately, Saferwall frontend only works with port `443`. To forward guest port `8443` to host port `443` using `firewalld`:
+```
+$ sudo firewall-cmd --zone=public --add-forward-port=port=443:proto=tcp:toport=8443:proto=tcp
+$ sudo firewall-cmd --zone=public --add-port=443/tcp
+```
