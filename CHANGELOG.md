@@ -1,5 +1,45 @@
 # Changelog
 
+## [1.0.0-alpha.7](https://github.com/extra2000/saferwall-box/compare/v1.0.0-alpha.6...v1.0.0-alpha.7) (2020-11-30)
+
+
+### Features
+
+* **podman-formula:** Update to [v2.2.0](https://github.com/extra2000/podman-formula/releases/v2.2.0) ([b778dbd](https://github.com/extra2000/saferwall-box/commit/b778dbdd3f83a3fda796fbc1e9321543a92723f4))
+* **saferwall-formula:** Update to [v1.0.0-alpha.6](https://github.com/extra2000/saferwall-formula/releases/v1.0.0-alpha.6) ([9138098](https://github.com/extra2000/saferwall-box/commit/9138098fa191431d32b3460c30144e34c6e9813d))
+* **vagrant:** Add openSUSE Leap 15.2 `aarch64` KVM box ([4eee235](https://github.com/extra2000/saferwall-box/commit/4eee235b76383469e8bfba366c4ccc26f2147a8f))
+* **vagrant:** Add openSUSE Tumbleweed `aarch64` KVM box ([9b66f9d](https://github.com/extra2000/saferwall-box/commit/9b66f9d1103e966465241b67bcfbb12ed36f35ea))
+
+
+### Fixes
+
+* **salt.bridgenet:** Fix networking issues after reboot on SUSE family ([e21f7f1](https://github.com/extra2000/saferwall-box/commit/e21f7f1abb6731401928fe998f93cae960c632a7))
+* **salt.bridgenet:** Fix NetworkManager not properly restarted on Ubuntu ([0395045](https://github.com/extra2000/saferwall-box/commit/03950453dd223d7fac0740429fb0ee79ba61a654))
+* **vagrant:** Fix vagrant boxes unable to communicate with other nodes ([4ca5556](https://github.com/extra2000/saferwall-box/commit/4ca5556a8011c33c7c1f3c26b4201cf46ef882c7))
+
+
+### Code Refactoring
+
+* **vagrant:** Postfix openSUSE `aarch64` QEMU file name with `.qemu` ([4766c1e](https://github.com/extra2000/saferwall-box/commit/4766c1e783650606e24d532a6f79a6b81b7f6763))
+* **vagrant:** Rename generic-box to saferwall-box ([c8177af](https://github.com/extra2000/saferwall-box/commit/c8177af43d19785510637e650d7e522ff62dba87))
+* **vagrant, readme:** Move Vagrant files into `vagrant/examples/` ([6e08cfc](https://github.com/extra2000/saferwall-box/commit/6e08cfccac504ad45e49cdac5881957029a2b856))
+
+
+### Continuous Integrations
+
+* **semantic-release:** Write version to `VERSION.txt` file ([ebb61c3](https://github.com/extra2000/saferwall-box/commit/ebb61c3e08aaf6067244ed360f0a6cd71b06755b))
+* Remove Travis CI because it is no longer free ([29091a5](https://github.com/extra2000/saferwall-box/commit/29091a547bb9b08fd98c8e88f64e3169a921cc31))
+* **AppVeyor:** Add `semantic-release` ([a7c0929](https://github.com/extra2000/saferwall-box/commit/a7c0929c18edc73743deb238a01c3de0e977b6e0))
+* **AppVeyor:** Update instruction for copying Vagrant example file ([39ac70f](https://github.com/extra2000/saferwall-box/commit/39ac70f7bc9db8315a148a344ef54bead403d95f))
+
+
+### Documentations
+
+* **creating-saferwall-box:** Add port-forwarding to external devices via host `firewalld` ([f5c1675](https://github.com/extra2000/saferwall-box/commit/f5c1675a4252ecc256b62a4a26961b46b1d5594e))
+* **README:** Remove Travis CI badge ([be47884](https://github.com/extra2000/saferwall-box/commit/be4788441bbb465ee4978131ef00863b4327e76d))
+* **regular-usage:** Destroy container before shutdown and recreate again on next boot ([a395500](https://github.com/extra2000/saferwall-box/commit/a3955009f11861b62c1d91ef8508c88701f7430f))
+* **vagrant:** Add commented port forwarding ([71e3d40](https://github.com/extra2000/saferwall-box/commit/71e3d4055eb73a2be3ba7b3e9edd2c870948ce0e))
+
 ## [1.0.0-alpha.6](https://github.com/extra2000/saferwall-box/compare/v1.0.0-alpha.5...v1.0.0-alpha.6) (2020-11-05)
 
 
