@@ -40,7 +40,9 @@ Vagrant.configure("2") do |config|
       v.machine_arch = "x86_64"
       v.autostart = false
 
+      override.vm.provision 'shell', run: 'once', inline: 'echo "send host-name \"saferwall-box\";" >> /etc/dhclient.conf', privileged: true
       salt_provision_saferwall_box override
+      override.vm.provision 'reload'
     end
 
     saferwall_box.vm.provider "virtualbox" do |v, override|
@@ -56,8 +58,9 @@ Vagrant.configure("2") do |config|
       v.customize ['modifyvm', :id, '--graphicscontroller', 'vmsvga']
       v.customize ['modifyvm', :id, '--audio', 'none']
 
+      override.vm.provision 'shell', run: 'once', inline: 'echo "send host-name \"saferwall-box\";" >> /etc/dhclient.conf', privileged: true
       override.vm.provision 'shell', run: 'once', inline: 'echo nameserver 8.8.8.8 | tee /etc/resolv.conf', privileged: true
-      override.vm.provision 'shell', run: 'once', inline: 'sudo zypper install -y avahi-tools nss-mdns && sudo systemctl start avahi-daemon && sudo systemctl enable avahi-daemon'
+      override.vm.provision 'shell', run: 'once', inline: 'sudo zypper install -y avahi-utils nss-mdns && sudo systemctl start avahi-daemon && sudo systemctl enable avahi-daemon'
       salt_provision_saferwall_box override
       override.vm.provision 'reload'
     end

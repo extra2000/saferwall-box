@@ -40,6 +40,7 @@ Vagrant.configure("2") do |config|
       v.machine_arch = "x86_64"
       v.autostart = false
 
+      override.vm.provision 'shell', run: 'always', inline: "rm -rf /etc/resolv.conf && echo \"nameserver `/sbin/ip route | awk '/default/ { print $3 }'`\" | tee /etc/resolv.conf", privileged: true
       salt_provision_saferwall_box override
     end
 
@@ -56,8 +57,8 @@ Vagrant.configure("2") do |config|
       v.customize ['modifyvm', :id, '--graphicscontroller', 'vmsvga']
       v.customize ['modifyvm', :id, '--audio', 'none']
 
-      override.vm.provision 'shell', run: 'once', inline: 'echo nameserver 8.8.8.8 | tee /etc/resolv.conf', privileged: true
-      override.vm.provision 'shell', run: 'once', inline: 'sudo apt install -y avahi-tools nss-mdns && sudo systemctl start avahi-daemon && sudo systemctl enable avahi-daemon'
+      override.vm.provision 'shell', run: 'always', inline: 'rm -rf /etc/resolv.conf && echo nameserver 10.0.2.3 | tee /etc/resolv.conf', privileged: true
+      override.vm.provision 'shell', run: 'once', inline: 'sudo apt update && sudo apt install -y avahi-utils libnss-mdns && sudo systemctl start avahi-daemon && sudo systemctl enable avahi-daemon'
       salt_provision_saferwall_box override
       override.vm.provision 'reload'
     end
