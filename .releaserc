@@ -23,7 +23,7 @@
       changelogTitle: '# Changelog',
     }],
     ["@semantic-release/git", {
-      "assets": ["CHANGELOG.md"]
+      "assets": ["CHANGELOG.md", "VERSION.txt"]
     }],
     ["@semantic-release/release-notes-generator", {
       "preset": "conventionalcommits",
@@ -41,6 +41,8 @@
       }
     }],
     "@semantic-release/github",
-    "@semantic-release/exec"
+    ["@semantic-release/exec", {
+      "generateNotesCmd": "echo ${nextRelease.version} > VERSION.txt"
+    }]
   ]
 }
