@@ -1,0 +1,47 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+def salt_provision_saferwall_box(context)
+  context.vm.provision "salt", run: 'once' do |salt|
+    salt.minion_config = "salt/etc/minion"
+    salt.masterless = true
+    salt.run_highstate = false
+    salt.verbose = true
+    salt.log_level = "info"
+    salt.colorize = true
+    salt.install_type = "stable"
+    salt.python_version = "3"
+    salt.bootstrap_options = "-P -c /tmp"
+  end
+end
+
+Vagrant.configure("2") do |config|
+
+  config.vagrant.plugins = ["vagrant-reload", "vagrant-scp"]
+
+  config.vm.define "saferwall-box" do |saferwall_box|
+    saferwall_box.vm.box = "opensuse/Tumbleweed.aarch64"
+    saferwall_box.vm.hostname = "saferwall-box"
+
+    saferwall_box.vm.provider "libvirt" do |v, override|
+      override.vagrant.plugins = config.vagrant.plugins + ["vagrant-libvirt"]
+      v.cpus = "2"
+      v.cputopology sockets: "1", cores: "2", threads: "1"
+      v.memory = "4096"
+      v.disk_bus = "virtio"
+      v.nic_model_type = "virtio-net-pci"
+      v.nested = false
+      v.graphics_type = "none"
+      v.machine_arch = "aarch64"
+      v.driver = "kvm"
+      v.autostart = false
+
+      override.vm.provision 'shell', run: 'once', inline: 'echo "send host-name \"saferwall-box\";" >> /etc/dhclient.conf', privileged: true
+      salt_provision_saferwall_box override
+      override.vm.provision 'reload'
+    end
+
+    saferwall_box.vm.synced_folder "salt/roots/", "/srv/", type: "rsync"
+    saferwall_box.vm.synced_folder '.', '/vagrant', disabled: true
+  end
+end
