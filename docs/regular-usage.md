@@ -7,6 +7,7 @@ After you have successfully deploy `saferwall-box`, you need to follow these ins
 
 To shutdown the `saferwall-box`, you can execute the following command from host:
 ```
+$ podman pod rm --all --force
 $ vagrant halt
 ```
 
@@ -17,7 +18,7 @@ To start `saferwall-box` and all pods, execute the following command from host:
 ```
 $ vagrant up
 $ vagrant ssh saferwall-box
-$ podman pod start --all
+$ sudo salt-call state.sls saferwall.service
 ```
 
 
