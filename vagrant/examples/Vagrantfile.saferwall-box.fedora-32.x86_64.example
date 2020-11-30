@@ -62,6 +62,27 @@ Vagrant.configure("2") do |config|
       override.vm.provision 'reload'
     end
 
+    ## Uncomment these lines to forward port
+    # saferwall_box.vm.network "forwarded_port", guest: 443, host: 8443, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 4150, host: 4150, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 4151, host: 4151, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 4152, host: 4152, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 4160, host: 4160, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 4161, host: 4161, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 4171, host: 4171, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 9000, host: 9000, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 8091, host: 8091, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 8092, host: 8092, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 8093, host: 8093, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 8094, host: 8094, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 8095, host: 8095, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 8096, host: 8096, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 11210, host: 11210, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 10004, host: 10004, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 10005, host: 10005, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 10011, host: 10011, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 10014, host: 10014, protocol: "tcp"
+
     saferwall_box.vm.synced_folder "salt/roots/", "/srv/", type: "rsync"
     saferwall_box.vm.synced_folder '.', '/vagrant', disabled: true
   end
