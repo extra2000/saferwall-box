@@ -1,0 +1,4 @@
+.vagrant
+vagrant/Vagrantfile.saferwall-box
+salt/roots/pillar/nginx.sls
+salt/roots/pillar/saferwall.sls

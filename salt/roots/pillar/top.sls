@@ -1,0 +1,5 @@
+base:
+  '*':
+    - podman
+    - nginx
+    - saferwall
