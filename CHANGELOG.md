@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.0-alpha.8](https://github.com/extra2000/saferwall-box/compare/v1.0.0-alpha.7...v1.0.0-alpha.8) (2020-12-01)
+
+
+### Features
+
+* **saferwall-formula:** Update to [v1.0.0](https://github.com/extra2000/saferwall-formula/releases/v1.0.0) ([f8896e3](https://github.com/extra2000/saferwall-box/commit/f8896e3027c5a98378e3153172e6cfaf95e277db))
+
 ## [1.0.0-alpha.7](https://github.com/extra2000/saferwall-box/compare/v1.0.0-alpha.6...v1.0.0-alpha.7) (2020-11-30)
 
 
