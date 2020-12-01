@@ -26,6 +26,7 @@ Vagrant.configure("2") do |config|
 
     saferwall_box.vm.provider "libvirt" do |v, override|
       override.vagrant.plugins = config.vagrant.plugins + ["vagrant-libvirt"]
+      override.vm.box_url = "https://download.fedoraproject.org/pub/fedora/linux/releases/32/Cloud/x86_64/images/Fedora-Cloud-Base-Vagrant-32-1.6.x86_64.vagrant-libvirt.box"
       v.cpus = "2"
       v.cputopology sockets: "1", cores: "2", threads: "1"
       v.memory = "4096"
@@ -46,6 +47,7 @@ Vagrant.configure("2") do |config|
     saferwall_box.vm.provider "virtualbox" do |v, override|
       override.vagrant.plugins = config.vagrant.plugins + ["vagrant-vbguest"]
       override.vbguest.auto_update = false
+      override.vm.box_url = "https://download.fedoraproject.org/pub/fedora/linux/releases/32/Cloud/x86_64/images/Fedora-Cloud-Base-Vagrant-32-1.6.x86_64.vagrant-virtualbox.box"
       override.vm.network "private_network", type: "dhcp"
       v.name = "saferwall-box"
       v.gui = false
