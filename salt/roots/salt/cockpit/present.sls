@@ -13,8 +13,12 @@ cockpit-and-addons-present:
       - cockpit-storaged
       - cockpit-kdump
       - cockpit-machines
+      - cockpit-pcp
 
 cockpit.socket:
   service.running:
     - enable: true
 
+pmlogger:
+  service.running:
+    - enable: true
