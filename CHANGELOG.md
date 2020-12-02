@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/extra2000/saferwall-box/compare/v1.0.0...v1.1.0) (2020-12-02)
+
+
+### Features
+
+* **cockpit:** Add `cockpit-pcp` and `pmlogger` for performance metrics history ([f11ebae](https://github.com/extra2000/saferwall-box/commit/f11ebaef966f7bd99ac5002af31df215589b8545))
+
 ## 1.0.0 (2020-12-01)
 
 
