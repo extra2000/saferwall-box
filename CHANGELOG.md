@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.1.1](https://github.com/extra2000/saferwall-box/compare/v1.1.0...v1.1.1) (2020-12-14)
+
+
+### Fixes
+
+* **vagrant:** Change VirtualBox deployment from headless to GUI. This may fix issues such as Virtualbox randomly hang. ([219cb8f](https://github.com/extra2000/saferwall-box/commit/219cb8f18364036f4940f064e8a1f5f4810e48c1))
+
 ## [1.1.0](https://github.com/extra2000/saferwall-box/compare/v1.0.0...v1.1.0) (2020-12-02)
 
 
