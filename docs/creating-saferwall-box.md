@@ -35,7 +35,7 @@ Remember for the following Sections, it is assumed that your current working dir
 ## Deploy NSQ pod
 
 ```
-$ podman play kube nsq-pod.yaml
+$ podman play kube --network=saferwall nsq-pod.yaml
 ```
 
 Create `scan` topic:
@@ -49,7 +49,7 @@ To monitor NSQ via `nsqadmin`, go to http://saferwall-box:4171.
 ## Deploy MinIO pod
 
 ```
-$ podman play kube minio-pod.yaml
+$ podman play kube --network=saferwall minio-pod.yaml
 ```
 
 To access and playaround with MinIO, go to http://saferwall-box:9000. Use Access Key `minio` and Secret Key `minio123`.
@@ -58,7 +58,7 @@ To access and playaround with MinIO, go to http://saferwall-box:9000. Use Access
 ## Deploy Couchbase pod
 
 ```
-$ podman play kube couchbase-pod.yaml
+$ podman play kube --network=saferwall couchbase-pod.yaml
 ```
 
 Create a Couchbase cluster named `saferwall-cluster` by navigating to http://saferwall-box:8091 using web browser. Use the following `username` and `password`:
@@ -78,14 +78,14 @@ Then, create 2 buckets with memory size 128MB each:
 ## Deploy MultiAV pod
 
 ```
-$ podman play kube --seccomp-profile-root /opt/saferwall/src/build/data multiav-pod.yaml
+$ podman play kube --network=saferwall --seccomp-profile-root /opt/saferwall/src/build/data multiav-pod.yaml
 ```
 
 
 ## Deploy Saferwall pod
 
 ```
-$ podman play kube saferwall-pod.yaml
+$ podman play kube --network=saferwall saferwall-pod.yaml
 ```
 
 Access saferwall at https://saferwall-box with the following login:
