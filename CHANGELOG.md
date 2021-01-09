@@ -1,5 +1,35 @@
 # Changelog
 
+## [2.0.0](https://github.com/extra2000/saferwall-box/compare/v1.1.1...v2.0.0) (2021-01-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* **pillar:** Pillar data and structure for Saferwall have changed.
+* **salt:** No longer using bridge network for Podman container intercommunications.
+
+### Features
+
+* **pillar:** Update Saferwall pillar data and structure ([9c7f6ea](https://github.com/extra2000/saferwall-box/commit/9c7f6eacf659c1993ce1c9d8e735c8da7de53a27))
+* **saferwall-formula:** Update ([ceaa6ec](https://github.com/extra2000/saferwall-box/commit/ceaa6ecae339fb7d95e62662eb665209a74c0387))
+* **submodule:** Add Cockpit Formula and replace exisiting Cockpit ([f320f0e](https://github.com/extra2000/saferwall-box/commit/f320f0e4103781e002bd9c0f64368636244d0511))
+
+
+### Performance Improvements
+
+* **vagrant:** Increase number of vCPUs to 4 and RAM to 6GB ([a234bef](https://github.com/extra2000/saferwall-box/commit/a234befff8e10d0f3ac4d8491329c60ead1dc6c2))
+
+
+### Code Refactoring
+
+* **salt:** Bridgenet have been removed ([96c3acd](https://github.com/extra2000/saferwall-box/commit/96c3acdb15cc179967bac17b13ebe6b57c65d5e2))
+
+
+### Documentations
+
+* **creating-saferwall-box.md:** Add `--network=saferwall` on `Podman play kube` commands ([07e32ad](https://github.com/extra2000/saferwall-box/commit/07e32ada82021063b9fbd699ed9be73d1e859ca8))
+* **README:** Update Diagrams ([205899e](https://github.com/extra2000/saferwall-box/commit/205899e8c5b908773420115e23d6da0c0d602a86))
+
 ### [1.1.1](https://github.com/extra2000/saferwall-box/compare/v1.1.0...v1.1.1) (2020-12-14)
 
 
