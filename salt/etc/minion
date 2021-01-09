@@ -393,6 +393,7 @@ file_roots:
   base:
     - /srv/salt
     - /srv/formulas/podman-formula
+    - /srv/formulas/cockpit-formula
     - /srv/formulas/saferwall-formula
 
 # By default, the Salt fileserver recurses fully into all defined environments

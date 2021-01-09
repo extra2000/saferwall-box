@@ -4,3 +4,6 @@
 [submodule "salt/roots/formulas/saferwall-formula"]
 	path = salt/roots/formulas/saferwall-formula
 	url = https://github.com/extra2000/saferwall-formula.git
+[submodule "salt/roots/formulas/cockpit-formula"]
+	path = salt/roots/formulas/cockpit-formula
+	url = https://github.com/extra2000/cockpit-formula.git
