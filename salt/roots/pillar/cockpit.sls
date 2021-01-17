@@ -5,3 +5,5 @@ cockpit:
   lookup:
     dashboard:
       enabled: false
+    machines:
+      enabled: false
