@@ -118,9 +118,9 @@ saferwall:
             host: 11210
         resources:
           requests:
-            memory: 1000Mi
+            memory: 2500Mi
           limits:
-            memory: 1100Mi
+            memory: 2600Mi
       multiav:
         clamav:
           enabled: true
