@@ -1,5 +1,21 @@
 # Changelog
 
+### [2.0.1](https://github.com/extra2000/saferwall-box/compare/v2.0.0...v2.0.1) (2021-01-17)
+
+
+### Documentations
+
+* **docs/creating-saferwall-box.md:** Disable Couchbase `search` service to minimize memory usage ([dc9084a](https://github.com/extra2000/saferwall-box/commit/dc9084a05f30b0d159979ae807259401068796dc))
+* **docs/creating-saferwall-box.md:** Simplify services deployment by using states in `saferwall.service` ([849e602](https://github.com/extra2000/saferwall-box/commit/849e6020d64fc7691e675f4093ffcf68f3b82628))
+* **salt/roots/pillar/saferwall.sls.example:** Add missing configurations for `consumer` ([a71ca7d](https://github.com/extra2000/saferwall-box/commit/a71ca7d58a01f3f13ad2ef61deb7b1fae2ee9a81))
+* **salt/roots/pillar/saferwall.sls.example:** Increase memory limit for `couchbase` ([4df43f4](https://github.com/extra2000/saferwall-box/commit/4df43f4fc0dad1cd74610d801805d4d6d1680eac))
+
+
+### Fixes
+
+* **cockpit-formula:** Update to [v1.0.1](https://github.com/extra2000/cockpit-formula/releases/tag/v1.0.1) ([b9fbf51](https://github.com/extra2000/saferwall-box/commit/b9fbf516988e897821892979c8ee72d2159349f1))
+* **saferwall-formula:** Update to [v2.0.1](https://github.com/extra2000/saferwall-formula/releases/tag/v2.0.1) ([50d085b](https://github.com/extra2000/saferwall-box/commit/50d085b86b0656d13f753fb44ea24eb3b553eb39))
+
 ## [2.0.0](https://github.com/extra2000/saferwall-box/compare/v1.1.1...v2.0.0) (2021-01-09)
 
 
