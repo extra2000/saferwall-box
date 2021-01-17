@@ -36,6 +36,12 @@ saferwall:
             memory: 200Mi
           limits:
             memory: 300Mi
+      consumer:
+        resources:
+          requests:
+            memory: 3000Mi
+          limits:
+            memory: 3100Mi
       nsq:
         port:
           tcp:
