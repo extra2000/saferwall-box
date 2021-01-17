@@ -65,10 +65,9 @@ Create a Couchbase cluster named `saferwall-cluster` by navigating to http://saf
 * Username: `Administrator`
 * Password: `abcde12345`
 
-Set the following quota:
+Enable `Data`, `Query`, and `Index` only. Set the following quota:
 * Data: 256MB
 * Index: 256MB
-* Search: 256MB
 
 Then, create 2 buckets with memory size 128MB each:
 1. `users`
