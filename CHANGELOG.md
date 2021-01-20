@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.1.0](https://github.com/extra2000/saferwall-box/compare/v2.0.1...v2.1.0) (2021-01-20)
+
+
+### Features
+
+* **submodule:** Update `cockpit-formula` to [v1.0.2](https://github.com/extra2000/cockpit-formula/releases/tag/v1.0.2) ([7495ce8](https://github.com/extra2000/saferwall-box/commit/7495ce87dfa336bebcd8e8776b000f4210907fab))
+* **submodule:** Update `podman-formula` to [v2.2.1](https://github.com/extra2000/podman-formula/releases/tag/v2.2.1) ([4b027bc](https://github.com/extra2000/saferwall-box/commit/4b027bcd7980c30f8db020fcf3978944c37d0d82))
+
+
+### Continuous Integrations
+
+* **AppVeyor:** Update Ubuntu from `18.04` to `20.04` ([294b922](https://github.com/extra2000/saferwall-box/commit/294b922ca8790df13053f400c78674c634dd6521))
+
 ### [2.0.1](https://github.com/extra2000/saferwall-box/compare/v2.0.0...v2.0.1) (2021-01-17)
 
 
