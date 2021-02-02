@@ -1,0 +1,91 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+def salt_provision_saferwall_box(context)
+  context.vm.provision "salt", run: 'once' do |salt|
+    salt.minion_config = "salt/etc/minion"
+    salt.masterless = true
+    salt.run_highstate = false
+    salt.verbose = true
+    salt.log_level = "info"
+    salt.colorize = true
+    salt.install_type = "stable"
+    salt.python_version = "3"
+    salt.bootstrap_options = "-P -c /tmp"
+  end
+end
+
+
+Vagrant.configure("2") do |config|
+
+  config.vagrant.plugins = ["vagrant-reload", "vagrant-scp"]
+
+  config.vm.define "saferwall-box" do |saferwall_box|
+    saferwall_box.vm.box = "fedora/33-cloud-base"
+    saferwall_box.vm.hostname = "saferwall-box"
+
+    saferwall_box.vm.provider "libvirt" do |v, override|
+      override.vagrant.plugins = config.vagrant.plugins + ["vagrant-libvirt"]
+      override.vm.box_url = "https://fedora.ipserverone.com/fedora/linux/releases/33/Cloud/x86_64/images/Fedora-Cloud-Base-Vagrant-33-1.2.x86_64.vagrant-libvirt.box"
+      v.cpus = "4"
+      v.cputopology sockets: "1", cores: "4", threads: "1"
+      v.memory = "6144"
+      v.disk_bus = "virtio"
+      v.nic_model_type = "virtio-net-pci"
+      v.nested = false
+      v.cpu_mode = "host-model"
+      v.cpu_fallback = "allow"
+      v.graphics_type = "none"
+      v.kvm_hidden = "false"
+      v.machine_type = "pc-i440fx-2.11"
+      v.machine_arch = "x86_64"
+      v.autostart = false
+
+      salt_provision_saferwall_box override
+    end
+
+    saferwall_box.vm.provider "virtualbox" do |v, override|
+      override.vagrant.plugins = config.vagrant.plugins + ["vagrant-vbguest"]
+      override.vbguest.auto_update = false
+      override.vm.box_url = "https://fedora.ipserverone.com/fedora/linux/releases/33/Cloud/x86_64/images/Fedora-Cloud-Base-Vagrant-33-1.2.x86_64.vagrant-virtualbox.box"
+      override.vm.network "private_network", type: "dhcp"
+      v.name = "saferwall-box"
+      v.gui = true
+      v.cpus = "4"
+      v.memory = "6144"
+      v.linked_clone = true
+      v.customize ["modifyvm", :id, '--natdnshostresolver1', 'on']
+      v.customize ['modifyvm', :id, '--graphicscontroller', 'vmsvga']
+      v.customize ['modifyvm', :id, '--audio', 'none']
+
+      override.vm.provision 'shell', run: 'once', inline: 'echo nameserver 8.8.8.8 | tee /etc/resolv.conf', privileged: true
+      override.vm.provision 'shell', run: 'once', inline: 'sudo dnf install -y avahi-tools nss-mdns && sudo systemctl start avahi-daemon && sudo systemctl enable avahi-daemon'
+      salt_provision_saferwall_box override
+      override.vm.provision 'reload'
+    end
+
+    ## Uncomment these lines to forward port
+    # saferwall_box.vm.network "forwarded_port", guest: 443, host: 8443, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 4150, host: 4150, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 4151, host: 4151, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 4152, host: 4152, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 4160, host: 4160, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 4161, host: 4161, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 4171, host: 4171, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 9000, host: 9000, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 8091, host: 8091, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 8092, host: 8092, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 8093, host: 8093, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 8094, host: 8094, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 8095, host: 8095, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 8096, host: 8096, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 11210, host: 11210, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 10004, host: 10004, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 10005, host: 10005, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 10011, host: 10011, protocol: "tcp"
+    # saferwall_box.vm.network "forwarded_port", guest: 10014, host: 10014, protocol: "tcp"
+
+    saferwall_box.vm.synced_folder "salt/roots/", "/srv/", type: "rsync"
+    saferwall_box.vm.synced_folder '.', '/vagrant', disabled: true
+  end
+end
