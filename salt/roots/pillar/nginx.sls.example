@@ -21,4 +21,4 @@ nginx:
   dhparam:
     enabled: false
     bits: 2048
-  client_max_body_size: 100M
+  client_max_body_size: 80M
