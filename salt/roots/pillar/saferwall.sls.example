@@ -153,7 +153,7 @@ saferwall:
             limits:
               memory: 500Mi
         windefender:
-          enabled: true
+          enabled: false
           port:
             container: 10014
             host: 10014
