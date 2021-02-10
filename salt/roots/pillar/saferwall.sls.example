@@ -25,7 +25,7 @@ saferwall:
           user: admin
           password: abcde12345
           email: admin@example.com
-        max_file_size: 32000000  # 32MB
+        max_file_size: 64000000  # 64MB
         max_avatar_file_size: 10000000  # 10MB
         signkey: jwt_secret_auth_key
         port:
@@ -33,15 +33,15 @@ saferwall:
           host: 8080
         resources:
           requests:
-            memory: 200Mi
+            memory: 500Mi
           limits:
-            memory: 300Mi
+            memory: 500Mi
       consumer:
         resources:
           requests:
-            memory: 3000Mi
+            memory: 500Mi
           limits:
-            memory: 3100Mi
+            memory: 500Mi
       nsq:
         port:
           tcp:
@@ -129,9 +129,9 @@ saferwall:
             host: 10004
           resources:
             requests:
-              memory: 2100Mi
+              memory: 2500Mi
             limits:
-              memory: 2200Mi
+              memory: 2500Mi
         comodo:
           enabled: true
           port:
@@ -139,9 +139,9 @@ saferwall:
             host: 10005
           resources:
             requests:
-              memory: 300Mi
+              memory: 500Mi
             limits:
-              memory: 350Mi
+              memory: 500Mi
         sophos:
           enabled: true
           port:
@@ -149,9 +149,9 @@ saferwall:
             host: 10011
           resources:
             requests:
-              memory: 300Mi
+              memory: 500Mi
             limits:
-              memory: 350Mi
+              memory: 500Mi
         windefender:
           enabled: true
           port:
@@ -159,6 +159,6 @@ saferwall:
             host: 10014
           resources:
             requests:
-              memory: 400Mi
+              memory: 500Mi
             limits:
-              memory: 450Mi
+              memory: 500Mi
