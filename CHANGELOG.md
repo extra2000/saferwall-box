@@ -1,5 +1,27 @@
 # Changelog
 
+## [2.2.0](https://github.com/extra2000/saferwall-box/compare/v2.1.0...v2.2.0) (2021-02-11)
+
+
+### Features
+
+* **saferwall-formula:** Update to [v2.2.0](https://github.com/extra2000/saferwall-formula/releases/tag/v2.2.0) ([6e317bc](https://github.com/extra2000/saferwall-box/commit/6e317bc1f6d482228116318e84768786f2e04017))
+* **vagrant:** Add Fedora 33 `x86_64` box ([4c7fd72](https://github.com/extra2000/saferwall-box/commit/4c7fd726c2289382475f719dbe7005a791cd7bfa))
+
+
+### Continuous Integrations
+
+* **git:** Ensure submodules are pulled recursively ([ee72271](https://github.com/extra2000/saferwall-box/commit/ee7227176ae20e62a43885bb3b4f12848a693516))
+* **vagrant:** Change from Fedora 32 to Fedora 33 ([9a507e2](https://github.com/extra2000/saferwall-box/commit/9a507e222959cb1b8f379abefefb6c0262cf8705))
+
+
+### Documentations
+
+* **nginx.sls.example:** Reduce client max body size from 100M to 80M since file upload size is limited to 64MB ([940e1e9](https://github.com/extra2000/saferwall-box/commit/940e1e98290722a4e23ec26421d6a0bfa9dd916b))
+* **README:** Default Vagrant box to Fedora 33 ([d4ab3ea](https://github.com/extra2000/saferwall-box/commit/d4ab3eaaf8d6d2e7fd153c87bd6c8cc3e7e68a5c))
+* **saferwall.sls.example:** Disable `windefender` by default because latest definition update causes `floating point exception` error ([17b9dc5](https://github.com/extra2000/saferwall-box/commit/17b9dc54d5eaeb360129fe6454e2607bd4bf60e3))
+* **saferwall.sls.example:** Increase default max size for file upload from 32MB to 64MB and fine tune container resources for the 64MB file upload ([be787e4](https://github.com/extra2000/saferwall-box/commit/be787e4091c5efa35fdb818b766161bc62430653))
+
 ## [2.1.0](https://github.com/extra2000/saferwall-box/compare/v2.0.1...v2.1.0) (2021-01-20)
 
 
