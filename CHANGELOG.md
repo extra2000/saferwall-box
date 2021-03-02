@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.2.1](https://github.com/extra2000/saferwall-box/compare/v2.2.0...v2.2.1) (2021-03-02)
+
+
+### Fixes
+
+* **saferwall-formula:** Update to `saferwall-formula` to [v2.2.1](https://github.com/extra2000/saferwall-formula/releases/tag/v2.2.1) which may fix compatibality with Podman v3.x ([dd67b3e](https://github.com/extra2000/saferwall-box/commit/dd67b3e95c4c2c4648f39eaf5b089d2218aef742))
+
 ## [2.2.0](https://github.com/extra2000/saferwall-box/compare/v2.1.0...v2.2.0) (2021-02-11)
 
 
