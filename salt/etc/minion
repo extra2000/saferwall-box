@@ -392,6 +392,7 @@ file_client: local
 file_roots:
   base:
     - /srv/salt
+    - /srv/formulas/zabbix-agent-formula
     - /srv/formulas/podman-formula
     - /srv/formulas/nginx-formula
     - /srv/formulas/saferwall-formula
