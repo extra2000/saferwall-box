@@ -1,0 +1,49 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+
+filebeat:
+  lookup:
+    hostuser:
+      name: vagrant
+      group: vagrant
+    pod:
+      network:
+        subnet: 10.77.2.0/24
+        gateway: 10.77.2.1
+        domain_name: filebeatnet
+        bridge: cni-podman0
+    filebeat:
+      resources:
+        requests:
+          memory: 100Mi
+        limits:
+          memory: 100Mi
+      ymlcfg:
+        name: saferwall-box
+        logging.level: warning
+        logging.to_files: true
+        logging.files:
+          path: /var/log/filebeat
+          name: filebeat
+          keepfiles: 7
+          permissions: "0644"
+        output.logstash:
+          hosts:
+            - elk-box:5044
+        filebeat.inputs:
+          - type: log
+            paths:
+              - /var/log/filebeat/*
+            fields:
+              service: filebeat
+          - type: log
+            paths:
+              - /var/log/nginx/*
+            fields:
+              service: nginx
+          - type: container
+            format: cri
+            paths:
+              - /var/log/overlay-containers/*/userdata/ctr.log
+            fields:
+              service: container

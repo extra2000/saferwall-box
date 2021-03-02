@@ -4,4 +4,5 @@ base:
     - podman
     - cockpit
     - nginx
+    - filebeat
     - saferwall
