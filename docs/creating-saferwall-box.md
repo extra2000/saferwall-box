@@ -26,6 +26,14 @@ $ vagrant ssh saferwall-box -- sudo salt-call state.sls saferwall
 ```
 
 
+## Configure NGINX for HTTPS
+
+This will configure NGINX for reverse proxy to Saferwall frontend and backend via HTTPS:
+```
+$ vagrant ssh saferwall-box -- sudo salt-call state.sls saferwall.config.nginx
+```
+
+
 ## Deploy NSQ pod
 
 ```
