@@ -10,6 +10,7 @@ saferwall:
       network:
         subnet: 10.77.1.0/24
         gateway: 10.77.1.1
+        bridge: cni-podman1
     service:
       ui:
         port:
