@@ -94,6 +94,13 @@ Access saferwall at https://saferwall-box with the following login:
 * Password: `abcde12345`
 
 
+## Deploy Filebeat pod for ELK (optional)
+
+```
+$ vagrant ssh saferwall-box -- sudo salt-call state.sls filebeat
+```
+
+
 ## Forwarding guest port 8443 to host port 443
 
 Unfortunately, Saferwall frontend only works with port `443`. To forward guest port `8443` to host port `443` using `firewalld`:
