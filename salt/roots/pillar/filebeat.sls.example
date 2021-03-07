@@ -40,10 +40,23 @@ filebeat:
             paths:
               - /var/log/nginx/*
             fields:
-              service: nginx
+              service: nginx.service
           - type: container
             format: cri
             paths:
               - /var/log/overlay-containers/*/userdata/ctr.log
             fields:
               service: container
+      podcfg:
+        volumeMounts:
+          - mountPath: /var/log/overlay-containers
+            name: container-logs
+          - mountPath: /var/log/nginx
+            name: nginx-logs-dir
+        volumes:
+          - name: container-logs
+            hostPath:
+              path: /home/vagrant/.local/share/containers/storage/overlay-containers
+          - name: nginx-logs-dir
+            hostPath:
+              path: /var/log/nginx
