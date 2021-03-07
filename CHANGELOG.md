@@ -1,5 +1,43 @@
 # Changelog
 
+## [3.0.0](https://github.com/extra2000/saferwall-box/compare/v2.2.1...v3.0.0) (2021-03-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* **submodule:** Contents in `salt/roots/pillar/nginx.sls.example` have been significantly changed
+
+### Features
+
+* **salt:** Add state `nginx_log_permission` to ensure rootless `filebeat` pod have permission to NGINX logs ([2576c97](https://github.com/extra2000/saferwall-box/commit/2576c9746f9ac47d68942ee23c3c5cf78d0c73bb))
+* **submodule:** Add [filebeat-formula v1.1.0](https://github.com/extra2000/filebeat-formula/releases/tag/v1.1.0) ([14a8c08](https://github.com/extra2000/saferwall-box/commit/14a8c0809955cb09b8ae64d6583f15ad1e377d80))
+* **submodule:** Add [nginx-formula v1.0.0](https://github.com/extra2000/nginx-formula/releases) ([b8b1de9](https://github.com/extra2000/saferwall-box/commit/b8b1de951d330cdda9a7230a0196c25c7aaffbee))
+* **submodule:** Add [zabbix-agent-formula v1.0.0](https://github.com/extra2000/zabbix-agent-formula/releases/tag/v1.0.0) ([d9f42e5](https://github.com/extra2000/saferwall-box/commit/d9f42e56c4f380c2fdb681ce1cf2b9fb890914c5))
+* **submodule:** Update `saferwall-formula` to [v2.3.0](https://github.com/extra2000/saferwall-formula/releases/tag/v2.3.0) ([be9f3a6](https://github.com/extra2000/saferwall-box/commit/be9f3a6b7a890b2ac9cfa5c1795ef15c9a510560))
+
+
+### Code Refactoring
+
+* **nginx:** Remove existing `nginx` state in favor of `nginx-formula` ([3ccad55](https://github.com/extra2000/saferwall-box/commit/3ccad55999ab03844f429f1038ac3c67699470c3))
+* **submodule:** Remove `cockpit-formula` in favor of `zabbix-agent-formula` ([5a3441c](https://github.com/extra2000/saferwall-box/commit/5a3441cc9a6c4bfebb975f129b8b7955a8053078))
+
+
+### Fixes
+
+* **salt/roots/pillar/saferwall.sls.example:** Add `bridge` to prevent pod networking conflict with `filebeat` pod ([1bc972c](https://github.com/extra2000/saferwall-box/commit/1bc972c49fd947c73db2f957c8f780f481c5b1c8))
+
+
+### Continuous Integrations
+
+* **AppVeyor:** Add instructions to copy `zabbix-agent` and `filebeat` SaltStack pillar files ([db301aa](https://github.com/extra2000/saferwall-box/commit/db301aa35ef84f3e0b25ddbd0309df43ff18a936))
+
+
+### Documentations
+
+* **README:** Add instructions to configure NGINX for Saferwall HTTPS ([5272bf9](https://github.com/extra2000/saferwall-box/commit/5272bf94fbe62e7ea6ee4ba07f6fa4471c6cf759))
+* **README:** Add instructions to copy `zabbix-agent` and `filebeat` SaltStack pillar files before creating Vagrant box ([4c68d41](https://github.com/extra2000/saferwall-box/commit/4c68d41687fde895e195d818f5c89b2beab9e2e0))
+* **README:** Add instructions to deploy `filebeat` ([f5e2b67](https://github.com/extra2000/saferwall-box/commit/f5e2b67602ceb8ebbbeaedb83b46bdbd324907b4))
+
 ### [2.2.1](https://github.com/extra2000/saferwall-box/compare/v2.2.0...v2.2.1) (2021-03-02)
 
 
