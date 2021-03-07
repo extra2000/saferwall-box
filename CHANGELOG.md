@@ -1,5 +1,12 @@
 # Changelog
 
+### [3.0.1](https://github.com/extra2000/saferwall-box/compare/v3.0.0...v3.0.1) (2021-03-07)
+
+
+### Fixes
+
+* **pillar/filebeat.sls.example:** Add missing configurations ([6ebeb33](https://github.com/extra2000/saferwall-box/commit/6ebeb3306f6b6d355d9ebc3df540fab934b4f2f0))
+
 ## [3.0.0](https://github.com/extra2000/saferwall-box/compare/v2.2.1...v3.0.0) (2021-03-07)
 
 
