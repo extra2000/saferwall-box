@@ -1,5 +1,18 @@
 # Changelog
 
+## [4.0.0](https://github.com/extra2000/saferwall-box/compare/v3.0.1...v4.0.0) (2021-03-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* **submodule:** Pillar format for `pillar/zabbix-agent.sls.example` has changed.
+
+### Features
+
+* **submodule:** Update `filebeat-formula` to [v1.1.1](https://github.com/extra2000/filebeat-formula/releases/tag/v1.1.1) ([52255a1](https://github.com/extra2000/saferwall-box/commit/52255a181160e286562e58a16568e75b4c2b9ba0))
+* **submodule:** Update `nginx-formula` to [v1.0.1](https://github.com/extra2000/nginx-formula/releases/tag/v1.0.1) ([4539ce9](https://github.com/extra2000/saferwall-box/commit/4539ce9d0ec88db7003570d47fa84ee965f03391))
+* **submodule:** Update `zabbix-agent-formula` to [v2.0.1](https://github.com/extra2000/zabbix-agent-formula/releases/tag/v2.0.1) ([3c84526](https://github.com/extra2000/saferwall-box/commit/3c84526e5221bc94467ce460a448180abb1f1a2a))
+
 ### [3.0.1](https://github.com/extra2000/saferwall-box/compare/v3.0.0...v3.0.1) (2021-03-07)
 
 
