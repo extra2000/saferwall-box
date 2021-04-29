@@ -140,9 +140,9 @@ saferwall:
             host: 10005
           resources:
             requests:
-              memory: 500Mi
+              memory: 1000Mi
             limits:
-              memory: 500Mi
+              memory: 1000Mi
         sophos:
           enabled: true
           port:
@@ -150,9 +150,9 @@ saferwall:
             host: 10011
           resources:
             requests:
-              memory: 500Mi
+              memory: 1000Mi
             limits:
-              memory: 500Mi
+              memory: 1000Mi
         windefender:
           enabled: false
           port:
