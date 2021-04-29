@@ -1,5 +1,54 @@
 # Changelog
 
+## [5.0.0](https://github.com/extra2000/saferwall-box/compare/v4.0.0...v5.0.0) (2021-04-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* **zabbix-agent-formula:** Pillar file for `salt/roots/pillar/zabbix-agent.sls.example` has changed.
+* **nginx-formula:** Pillar file for `salt/roots/pillar/nginx.sls.example` has changed.
+
+### Features
+
+* **filebeat-formula:** Upgrade from `v1.1.1` to `v2.1.0` ([ca5494c](https://github.com/extra2000/saferwall-box/commit/ca5494c69a6e04440d11a3c942fab211e76438fb))
+* **nginx-formula:** Upgrade from `v1.0.1` to `v2.0.0` ([168fdfe](https://github.com/extra2000/saferwall-box/commit/168fdfe5dfa08cb164b12c608d6600b26830db67))
+* **saferwall-formula:** Upgrade to [v3.0.0](https://github.com/extra2000/saferwall-formula/releases/tag/v3.0.0) ([1238412](https://github.com/extra2000/saferwall-box/commit/12384126b079a241401524964ce7e894a285c673))
+* **vagrant:** Add Fedora 34 `x86_64` Vagrant file ([bcd33b4](https://github.com/extra2000/saferwall-box/commit/bcd33b4c015eaaf780177f567ece36f7292875f5))
+* **vagrant:** Standardize SaltStack installations method and use latest version `v3003` ([7d9b711](https://github.com/extra2000/saferwall-box/commit/7d9b711fa3d18305453853a84072b1f06b66e266))
+* **zabbix-agent-formula:** Upgrade to version `v4.0.0` ([f8a4d12](https://github.com/extra2000/saferwall-box/commit/f8a4d127c86c4882106ce2550e82f002cdf976c6))
+
+
+### Performance Improvements
+
+* **pillar/saferwall.sls.example:** Fine tune resources ([c7677c6](https://github.com/extra2000/saferwall-box/commit/c7677c6a7281c1c0c7310d5254b8a0c7bd0b69ab))
+
+
+### Fixes
+
+* **podman-formula:** Patch update to `v2.2.2` ([b331550](https://github.com/extra2000/saferwall-box/commit/b33155003c40c8401d353a1174b896fbbfe3b374))
+* **salt:** Using new `module.run` style ([e822031](https://github.com/extra2000/saferwall-box/commit/e8220314c52a04e3f35a4f4aabb1eb7a9921f9b2))
+
+
+### Code Refactoring
+
+* **nginx_log_permission:** Removed because NGINX is now deployed via Podman ([8b07a00](https://github.com/extra2000/saferwall-box/commit/8b07a00df69da954ed3a1f51f86aaab13d50736a))
+* **salt:** Install Podman first before deploy Zabbix Agent container during `state.highstate` ([3212a60](https://github.com/extra2000/saferwall-box/commit/3212a6043d55a0853bc43cbcef40306123f702e9))
+
+
+### Continuous Integrations
+
+* **AppVeyor:** Change from Fedora 33 to Fedora 34 ([0deefd2](https://github.com/extra2000/saferwall-box/commit/0deefd209a27701eeb9825576f0b058baef43db2))
+* **AppVeyor:** Create dummy NGINX file to prevent error during `state.highstate` ([1203ee4](https://github.com/extra2000/saferwall-box/commit/1203ee447421855a11b7b484b331d916c12877c7))
+* **AppVeyor:** Upgrade Vagrant from `v2.2.9` to `v2.2.14` ([0a41da7](https://github.com/extra2000/saferwall-box/commit/0a41da7839b1159cf36492f442dcfd4e3478da1b))
+
+
+### Documentations
+
+* **README:** Add instructions to create systemd units to autostart pods at boot ([82f1744](https://github.com/extra2000/saferwall-box/commit/82f174441ef32263e71ae0207c6b4ce94cfb4dbf))
+* **README:** Add instructions to deploy NGINX pod ([197193b](https://github.com/extra2000/saferwall-box/commit/197193bd1354a49e3c30a6f1a545430a5cc5e002))
+* **README:** Remove HTTPS port forwarding instructions due to bad practice ([dcc4d6c](https://github.com/extra2000/saferwall-box/commit/dcc4d6ccc61a182d5b1508847451764ec5e70837))
+* **README:** Set Fedora 34 as default Vagrant instruction ([5f5e3bf](https://github.com/extra2000/saferwall-box/commit/5f5e3bfc3bf82403a54f872f766db747c2cf7568))
+
 ## [4.0.0](https://github.com/extra2000/saferwall-box/compare/v3.0.1...v4.0.0) (2021-03-09)
 
 
