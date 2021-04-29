@@ -6,12 +6,17 @@ zabbix_agent:
     hostuser:
       name: vagrant
       group: vagrant
+    storage_devices:
+      - /dev/vda
+    storage_mounts:
+      - name: rootfs
+        host_path: /
+        container_path: /rootfs
     config:
       hostname: saferwall-box
-      passive_check:
-        accepted_servers: "zabbix-box"
-        listen_ip: 0.0.0.0
-        listen_port: 10050
-        start_agents: 3
-      active_check:
-        servers: "zabbix-box:10051"
+      start_agents: 3
+      zabbix_server:
+        host: zabbix-box
+        port: 10051
+      passive_check: true
+      active_check: true
