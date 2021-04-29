@@ -7,7 +7,7 @@ This Chapter shall demonstrate how to create `saferwall-box`.
 
 Copy example pillars and Vagrant scripts. You can modify the values if you want:
 ```
-$ cp -v vagrant/examples/Vagrantfile.saferwall-box.fedora-33.x86_64.example vagrant/Vagrantfile.saferwall-box
+$ cp -v vagrant/examples/Vagrantfile.saferwall-box.fedora-34.x86_64.example vagrant/Vagrantfile.saferwall-box
 $ cp -v salt/roots/pillar/zabbix-agent.sls.example salt/roots/pillar/zabbix-agent.sls
 $ cp -v salt/roots/pillar/filebeat.sls.example salt/roots/pillar/filebeat.sls
 $ cp -v salt/roots/pillar/nginx.sls.example salt/roots/pillar/nginx.sls
