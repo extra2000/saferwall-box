@@ -106,3 +106,62 @@ Access saferwall at https://saferwall-box with the following login:
 ```
 $ vagrant ssh saferwall-box -- sudo salt-call state.sls filebeat
 ```
+
+
+## Create systemd units for auto startup on boot
+
+Generate systemd unit for `nginx-pod` and enable it:
+```
+$ cd ~/.config/systemd/user
+$ podman generate systemd --files --name nginx-pod
+$ systemctl --user daemon-reload
+$ systemctl --user enable pod-nginx-pod.service container-nginx-pod-srv01.service
+```
+
+Generate systemd unit for `zabbix-agent-pod` and enable it:
+```
+$ cd ~/.config/systemd/user
+$ podman generate systemd --files --name zabbix-agent-pod
+$ systemctl --user daemon-reload
+$ systemctl --user enable pod-zabbix-agent-pod.service container-zabbix-agent-pod-agent.service
+```
+
+Generate systemd unit for `nsq-pod` and enable it:
+```
+$ cd ~/.config/systemd/user
+$ podman generate systemd --files --name nsq-pod
+$ systemctl --user daemon-reload
+$ systemctl --user enable container-nsq-pod-nsqadmin.service container-nsq-pod-nsqlookup.service pod-nsq-pod.service container-nsq-pod-nsq.service
+```
+
+Generate systemd unit for `minio-pod` and enable it:
+```
+$ cd ~/.config/systemd/user
+$ podman generate systemd --files --name minio-pod
+$ systemctl --user daemon-reload
+$ systemctl --user enable pod-minio-pod.service container-minio-pod-minio.service
+```
+
+Generate systemd unit for `couchbase-pod` and enable it:
+```
+$ cd ~/.config/systemd/user
+$ podman generate systemd --files --name couchbase-pod
+$ systemctl --user daemon-reload
+$ systemctl --user enable pod-couchbase-pod.service container-couchbase-pod-couchbase.service
+```
+
+Generate systemd unit for `multiav-pod` and enable it:
+```
+$ cd ~/.config/systemd/user
+$ podman generate systemd --files --name multiav-pod
+$ systemctl --user daemon-reload
+$ systemctl --user enable container-multiav-pod-clamav.service container-multiav-pod-sophos.service pod-multiav-pod.service container-multiav-pod-comodo.service
+```
+
+Generate systemd unit for `saferwall-pod` and enable it:
+```
+$ cd ~/.config/systemd/user
+$ podman generate systemd --files --name saferwall-pod
+$ systemctl --user daemon-reload
+$ systemctl --user enable pod-saferwall-pod.service container-saferwall-pod-consumer.service container-saferwall-pod-ui.service container-saferwall-pod-backend.service
+```
