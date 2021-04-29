@@ -13,6 +13,7 @@ build_script:
   - cp -v salt/roots/pillar/filebeat.sls{.example,}
   - cp -v salt/roots/pillar/nginx.sls{.example,}
   - cp -v salt/roots/pillar/saferwall.sls{.example,}
+  - cp -v salt/roots/formulas/nginx-formula/nginx/files/https.conf.example salt/roots/formulas/nginx-formula/nginx/files/https.conf
   - sudo vagrant up --provider=libvirt saferwall-box
   - sudo vagrant ssh saferwall-box -- sudo salt-call state.highstate
   - sudo vagrant destroy --force saferwall-box
