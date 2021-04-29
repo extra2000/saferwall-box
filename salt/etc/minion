@@ -272,6 +272,11 @@
 #  - /etc/salt/extra_config
 #  - /etc/roles/webserver
 
+# Using new module.run style
+# See https://docs.saltproject.io/en/latest/ref/states/all/salt.states.module.html
+use_superseded:
+  - module.run
+
 
 #####   Minion module management     #####
 ##########################################
