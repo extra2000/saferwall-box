@@ -83,6 +83,13 @@ $ vagrant ssh saferwall-box -- sudo salt-call state.sls saferwall.service.multia
 ```
 
 
+## Deploy NGINX pod
+
+```
+$ vagrant ssh saferwall-box -- sudo salt-call state.sls nginx.service
+```
+
+
 ## Deploy Saferwall pod
 
 ```
